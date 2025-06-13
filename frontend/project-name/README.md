@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<!-- ───────────────────────────────────────────────────────────── -->
+<!-- ────────── Overview ────────── -->
+# <span style="color:#ED1C24">Overview</span>
 
-## Getting Started
+Our React codebase follows a **single, repeatable template** so every file feels familiar at a glance.  
+Two pillars define the shape of a component:
 
-First, run the development server:
+1. **Import Order** – a strict, top-to-bottom taxonomy  
+2. **Component Body** – a clear, linear flow from setup → render
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## <span style="color:#ED1C24">1&nbsp;&nbsp;Import Order</span>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```tsx
+// fundamental libraries     (e.g. React, useState, useEffect)
+import React, { useState } from 'react';
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+// component libraries       (e.g. Material-UI, Radix UI)
+import { Button, TextField } from '@mui/material';
 
-## Learn More
+// custom components         (local, first-party building blocks)
+import Card from '@/components/Card';
 
-To learn more about Next.js, take a look at the following resources:
+// external libraries        (3rd-party helpers)
+import dayjs from 'dayjs';
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+// utilities                 (pure functions, no side effects)
+import { formatPrice } from '@/utils/format';
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+// types                      (shared & local TypeScript defs)
+import type { Product } from '@/types';
 
-## Deploy on Vercel
+// styles
+import './ProductCard.css';
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## <span style="color:#ED1C24">Component Anatomy</span>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Each component follows a strict top-to-bottom order to keep every file instantly scannable:
+
+```tsx
+// ╔═ Imports ══════════════════════════════════════════════════════════╗
+import React from 'react';                     // fundamental libraries
+import { Button } from '@mui/material';        // component libraries
+import Card from '@/components/Card';          // custom components
+import dayjs from 'dayjs';                     // external libraries
+
+import { parsePrice } from '@/utils/format';   // utilities
+import type { Product } from '@/types';        // types
+
+import './styles.css';                         // styles
+// ╚══════════════════════════════════════════════════════════════════╝
+
+// ╔═ Init ════════════════════════════════════════════════════════════╗
+const mutated = {};                            // mutable refs / helpers
+
+// ╠═ Hooks ═══════════════════════════════════════════════════════════╣
+const { register, handleSubmit } = useFormZX();
+
+// ╠═ State ═══════════════════════════════════════════════════════════╣
+const [isLoading, setLoading] = useState(false);
+
+// ╠═ Derived data & helpers ══════════════════════════════════════════╣
+// …
+
+// ╠═ Side effects ═══════════════════════════════════════════════════╣
+// …
+
+// ╠═ Render ═════════════════════════════════════════════════════════╣
+if (isLoading) return <Spinner />;
+
+return (
+  <Card as="form" onSubmit={handleSubmit(onSubmit)}>
+    …
+  </Card>
+);
+// ╚══════════════════════════════════════════════════════════════════╝
