@@ -27,6 +27,9 @@
 Imports are organized into a specific order:
 
 ```tsx
+// ╔═══════════════════╗
+// ║   Import Order    ║
+// ╚═══════════════════╝
 // 1. Core Library
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
@@ -75,7 +78,7 @@ const [isLoading, setLoading] = useState(false);
 // Derived Data & Memoized Values (useMemo, useCallback)
 const formattedPrice = useMemo(() => formatPrice(price), [price]);
 
-// Event Handlers & Other Functions
+// Functions (Event Handlers, others)
 const handleClick = () => {};
 
 // Side Effects (Effects, Events)
