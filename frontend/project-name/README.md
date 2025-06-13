@@ -1,5 +1,4 @@
 <!-- README.md -->
-<!-- Purpose: Minimalistic & professional formatting for copy-paste -->
 
 # React Component Structure
 > This document outlines the standardized structure for React components to ensure consistency and readability across the codebase.
@@ -19,6 +18,7 @@
 | --------------- | -------------- |
 | **Fixed import order** | Reduces cognitive load—similar things are always in the same place. |
 | **Linear component body** | Lets you read top-to-bottom without hunting for logic. |
+| **Reduce merge conflicts** | Reduce and flatten merge conflicts. |
 
 ---
 
@@ -27,32 +27,26 @@
 Imports are organized into a specific order:
 
 ```tsx
-// 1. Core React
+// 1. Core Library
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link'
 
 // 2. UI Libraries
-import { Button, TextField } from '@mui/material';
+import { Button, Card  } from '@antd';
 
 // 3. Custom Components
-import Card from '@/components/Card';
+import Card from '@components/Card';
 
 // 4. External Libraries
 import dayjs from 'dayjs';
 
 // 5. Utilities
-import { formatPrice } from '@/utils/format';
+import { formatPrice } from '@utils/format';
 
 // 6. Types
-import type { Product } from '@/types';
+import type { Product } from '@types';
 
 // 7. Styles
-import './ProductCard.css';
-
-// ╔═══════════════════╗
-// ║      Imports      ║
-// ╚═══════════════════╝
-import React from 'react';
-// ... (other imports following the order above)
 import './styles.css';
 ```
 
