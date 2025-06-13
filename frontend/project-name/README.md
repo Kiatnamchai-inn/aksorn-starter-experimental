@@ -54,44 +54,52 @@ import './ProductCard.css';
 import React from 'react';
 // ... (other imports following the order above)
 import './styles.css';
+```
 
+## Component Logic
+
+```tsx
 // ╔═══════════════════╗
 // ║   Component Logic ║
 // ╚═══════════════════╝
 
 // Props & Default Props (if any)
-// interface MyComponentProps { /* ... */ }
-// const defaultProps = { /* ... */ };
+type MyComponentProps = {};
+export default function MyComponent({ firstProps, secondProps, ...})
 
-// Mutable refs / helpers (use sparingly)
-// const mutableRef = useRef();
+// Init (in case you need to mutate the props before using in the react component)
+const mutatedFirstProps = transform(firstProps)
 
-// Hooks (e.g., useForm, useContext)
-// const { register, handleSubmit } = useForm();
+// Hooks
+const router = useRouter();
+const counterStore = useCounterStore();
+const { register, handleSubmit } = useForm();
 
-// State (useState, useReducer)
-// const [isLoading, setLoading] = useState(false);
+// State
+const [isLoading, setLoading] = useState(false);
 
 // Derived Data & Memoized Values (useMemo, useCallback)
-// const formattedPrice = useMemo(() => formatPrice(price), [price]);
-
-// Side Effects (useEffect)
-// useEffect(() => { /* ... */ }, [dependencies]);
+const formattedPrice = useMemo(() => formatPrice(price), [price]);
 
 // Event Handlers & Other Functions
-// const handleClick = () => { /* ... */ };
+const handleClick = () => {};
+
+// Side Effects (Effects, Events)
+// Effects should be used as escape hatch only
+useEffect(() => { /* ... */ }, [dependencies]);
 
 // ╔═══════════════════╗
 // ║       Render      ║
 // ╚═══════════════════╝
-// if (isLoading) return <Spinner />;
+// conditional rendering logic first
+if (isLoading) return <Spinner />;
 
-// return (
-//   <Card>
-//     {/* ... JSX ... */}
-//   </Card>
-// );
+// actual rendering logic with jsx
+return (
+  <Card>
+    {/* ... JSX ... */}
+  </Card>
+ );
 
-// export default
-
-
+export default
+```
