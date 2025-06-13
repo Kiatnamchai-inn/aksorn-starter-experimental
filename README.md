@@ -46,9 +46,9 @@ frontend/
 │   │   └── layout/
 │   │       └── header/
 │   │           ├── UserBadge.tsx
-│   │           └── index.ts         # barrel
+│   │           └── index.ts
 │   ├── configs/
-│   │   ├── index.ts                 # barrel
+│   │   ├── index.ts
 │   │   └── navigation/
 │   │       └── nav-bar-items.tsx
 │   ├── hooks/
