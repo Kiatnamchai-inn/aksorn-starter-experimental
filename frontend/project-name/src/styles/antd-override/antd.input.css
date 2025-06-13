@@ -1,0 +1,16 @@
+.ant-input-outlined ,.ant-input-affix-wrapper {
+    height: 40px;
+}
+
+.ant-input-outlined {
+    border: 1px solid var(--color-secondary-grey-40);
+}
+
+.ant-input-outlined:hover {
+    border: 1px solid var(--color-primary-red);
+}
+
+.ant-input-outlined:focus-within {
+    border: 1px solid var(--color-primary-red);
+    box-shadow: 0 0 0 2px var(--color-tertiary-light-pink);
+}

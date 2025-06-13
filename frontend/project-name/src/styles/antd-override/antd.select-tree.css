@@ -1,0 +1,47 @@
+.ant-tree-select-dropdown .ant-select-tree .ant-select-tree-switcher .ant-select-tree-switcher-icon, .ant-select-multiple .ant-select-selection-overflow .ant-select-selection-item-remove svg {
+    display: none
+}
+
+.ant-select-tree-switcher {
+    pointer-events: none;
+}
+
+.ant-tree-select-dropdown .ant-select-tree .ant-select-tree-switcher:before {
+    content: none;
+}
+
+.ant-tree-select-dropdown .ant-select-tree-checkbox-checked .ant-select-tree-checkbox-inner {
+    background-color: var(--color-primary-red);
+    border-color: var(--color-primary-red);
+}
+
+.ant-tree-select-dropdown .ant-select-tree-checkbox-checked:hover .ant-select-tree-checkbox-inner,
+.ant-tree-select-dropdown .ant-select-tree-checkbox-checked .ant-select-tree-checkbox-inner:hover {
+    background-color: var(--color-primary-red);
+    border-color: var(--color-primary-red);
+}
+
+.ant-tree-select-dropdown .ant-select-tree-checkbox-indeterminate .ant-select-tree-checkbox-inner {
+    border-color: var(--color-primary-red);
+}
+
+.ant-tree-select-dropdown .ant-select-tree-checkbox-indeterminate .ant-select-tree-checkbox-inner:after  {
+    background-color: var(--color-primary-red);
+}
+
+.ant-tree-select-dropdown .ant-select-tree-checkbox:not(.ant-select-tree-checkbox-disabled):hover .ant-select-tree-checkbox-inner {
+    border-color: var(--color-primary-red);
+}
+
+.ant-tree-select-dropdown .ant-select-tree-checkbox-checked:not(.ant-select-tree-checkbox-disabled):hover .ant-select-tree-checkbox-inner {
+    background-color: var(--color-primary-red);
+    border-color: var(--color-primary-red);
+}
+
+.ant-select-outlined.ant-select-multiple .ant-select-selection-item {
+    background: none;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

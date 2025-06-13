@@ -1,0 +1,52 @@
+{
+  "name": "assessment-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ebay/nice-modal-react": "^1.2.13",
+    "@tanstack/react-query": "^5.80.6",
+    "antd": "^5.25.4",
+    "axios": "^1.9.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cva": "npm:class-variance-authority@^0.7.1",
+    "lucide-react": "^0.513.0",
+    "next": "15.3.3",
+    "nextjs-toploader": "^3.8.16",
+    "nuqs": "^2.4.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.57.0",
+    "react-icons": "^5.5.0",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@eslint/js": "^9.28.0",
+    "@faker-js/faker": "^9.8.0",
+    "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/postcss": "^4.1.8",
+    "@tanstack/eslint-plugin-query": "^5.78.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
+    "axios-mock-adapter": "^2.1.0",
+    "eslint": "^9.28.0",
+    "eslint-config-next": "15.3.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-react": "^7.37.5",
+    "postcss": "^8.5.4",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.12",
+    "tailwindcss": "^4.1.8",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.34.0"
+  }
+}

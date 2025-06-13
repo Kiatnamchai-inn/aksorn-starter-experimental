@@ -1,0 +1,12 @@
+@import './antd.dropdown.css';
+@import './antd.input.css';
+@import './antd.modal.css';
+@import './antd.pagination.css';
+@import './antd.select-tree.css';
+@import './antd.select.css';
+@import './antd.table.css';
+
+html, [class*="antd"], [class^="ant-table"] , * {
+   font-family: 'Sarabun';
+}
+

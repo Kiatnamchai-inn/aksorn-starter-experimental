@@ -1,0 +1,8 @@
+{
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "printWidth": 120,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindConfig": "./src/styles/tailwind.config.js",
+  "tailwindFunctions": ["clsx", "cva"]
+}
