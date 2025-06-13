@@ -13,9 +13,16 @@
 
 ## ✨ Highlights
 
-- **Consistent architecture** – shared conventions, barrel files, feature modules.
-- **Zero-to-prod ready** – ESLint, Prettier, TypeScript, testing & CI hooks included.
-- **Minimal surface area** – only what you need to ship the first commit.
+- **Organizing Principles** – Feature-based folders, with a light domain-driven layer inside each feature. This strikes a balance between easy discovery, maintainability, and intuitive navigation.
+- **File Naming** – Directories & non-component files: kebab-case (e.g. user-profile).
+  React component files: PascalCase (e.g. UserProfile.tsx).
+- **Variable Naming** – Choose names that clearly describe the purpose but remain short—for example, use 'selectedProductId' instead of unclear terms like 'selectedOptions' or 'itemsOptions'.
+  Variables: camelCase (e.g. isAuthenticated).
+  Constant Variables: SCREAMING_SNAKE_CASE (e.g. EDUCATION_YEARS).
+- **File Suffixes** – put suffixes for 'role' in each files (e.g. project.type.ts, education-years.const.ts)
+- **Exports** – Default-export the main React component; use named exports for everything else (helpers, hooks, types).
+- **Barrel files** – Create an index.ts in each folder to re-export public items, keeping import statements short and readable.
+- **Grouping** – Within a feature, separate folders for components, hooks, utils, etc., so each item sits next to peers that serve a similar “technical role.”
 
 ---
 
