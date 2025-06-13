@@ -1,78 +1,97 @@
-<!-- ───────────────────────────────────────────────────────────── -->
-<!-- ────────── Overview ────────── -->
-# <span style="color:#ED1C24">Overview</span>
+<!-- README.md -->
+<!-- Purpose: Minimalistic & professional formatting for copy-paste -->
 
-Our React codebase follows a **single, repeatable template** so every file feels familiar at a glance.  
-Two pillars define the shape of a component:
-
-1. **Import Order** – a strict, top-to-bottom taxonomy  
-2. **Component Body** – a clear, linear flow from setup → render
+# React Component Structure
+> This document outlines the standardized structure for React components to ensure consistency and readability across the codebase.
 
 ---
 
-## <span style="color:#ED1C24">1&nbsp;&nbsp;Import Order</span>
+## Table of Contents
+1. [Guiding Principles](#guiding-principles)  
+2. [Import Order](#import-order)  
+3. [Component Body](#component-body)  
+
+---
+
+## Guiding Principles
+
+| Principle&nbsp; | Why it matters |
+| --------------- | -------------- |
+| **Fixed import order** | Reduces cognitive load—similar things are always in the same place. |
+| **Linear component body** | Lets you read top-to-bottom without hunting for logic. |
+
+---
+
+## Import Order
+
+Imports are organized into a specific order:
 
 ```tsx
-// fundamental libraries     (e.g. React, useState, useEffect)
-import React, { useState } from 'react';
+// 1. Core React
+import React, { useState, useEffect } from 'react';
 
-// component libraries       (e.g. Material-UI, Radix UI)
+// 2. UI Libraries
 import { Button, TextField } from '@mui/material';
 
-// custom components         (local, first-party building blocks)
+// 3. Custom Components
 import Card from '@/components/Card';
 
-// external libraries        (3rd-party helpers)
+// 4. External Libraries
 import dayjs from 'dayjs';
 
-// utilities                 (pure functions, no side effects)
+// 5. Utilities
 import { formatPrice } from '@/utils/format';
 
-// types                      (shared & local TypeScript defs)
+// 6. Types
 import type { Product } from '@/types';
 
-// styles
+// 7. Styles
 import './ProductCard.css';
----
 
-## <span style="color:#ED1C24">Component Anatomy</span>
+// ╔═══════════════════╗
+// ║      Imports      ║
+// ╚═══════════════════╝
+import React from 'react';
+// ... (other imports following the order above)
+import './styles.css';
 
-Each component follows a strict top-to-bottom order to keep every file instantly scannable:
+// ╔═══════════════════╗
+// ║   Component Logic ║
+// ╚═══════════════════╝
 
-```tsx
-// ╔═ Imports ══════════════════════════════════════════════════════════╗
-import React from 'react';                     // fundamental libraries
-import { Button } from '@mui/material';        // component libraries
-import Card from '@/components/Card';          // custom components
-import dayjs from 'dayjs';                     // external libraries
+// Props & Default Props (if any)
+// interface MyComponentProps { /* ... */ }
+// const defaultProps = { /* ... */ };
 
-import { parsePrice } from '@/utils/format';   // utilities
-import type { Product } from '@/types';        // types
+// Mutable refs / helpers (use sparingly)
+// const mutableRef = useRef();
 
-import './styles.css';                         // styles
-// ╚══════════════════════════════════════════════════════════════════╝
+// Hooks (e.g., useForm, useContext)
+// const { register, handleSubmit } = useForm();
 
-// ╔═ Init ════════════════════════════════════════════════════════════╗
-const mutated = {};                            // mutable refs / helpers
+// State (useState, useReducer)
+// const [isLoading, setLoading] = useState(false);
 
-// ╠═ Hooks ═══════════════════════════════════════════════════════════╣
-const { register, handleSubmit } = useFormZX();
+// Derived Data & Memoized Values (useMemo, useCallback)
+// const formattedPrice = useMemo(() => formatPrice(price), [price]);
 
-// ╠═ State ═══════════════════════════════════════════════════════════╣
-const [isLoading, setLoading] = useState(false);
+// Side Effects (useEffect)
+// useEffect(() => { /* ... */ }, [dependencies]);
 
-// ╠═ Derived data & helpers ══════════════════════════════════════════╣
-// …
+// Event Handlers & Other Functions
+// const handleClick = () => { /* ... */ };
 
-// ╠═ Side effects ═══════════════════════════════════════════════════╣
-// …
+// ╔═══════════════════╗
+// ║       Render      ║
+// ╚═══════════════════╝
+// if (isLoading) return <Spinner />;
 
-// ╠═ Render ═════════════════════════════════════════════════════════╣
-if (isLoading) return <Spinner />;
+// return (
+//   <Card>
+//     {/* ... JSX ... */}
+//   </Card>
+// );
 
-return (
-  <Card as="form" onSubmit={handleSubmit(onSubmit)}>
-    …
-  </Card>
-);
-// ╚══════════════════════════════════════════════════════════════════╝
+// export default
+
+
